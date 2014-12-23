@@ -1,0 +1,30 @@
+<div class="row">
+  <div class="col-sm-4">
+    <div class="well">
+  
+        <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        
+        <fieldset>
+          <legend>Sign in</legend>
+  
+          <%= f.input :netID, label: 'NetID'%>
+          <%= f.input :password%>
+  
+          <% if devise_mapping.rememberable? -%>
+            <div>
+              <%= f.input :remember_me, as: :boolean %>
+            </div>
+          <% end -%>
+
+          <div class="actions">
+            <%= f.button :submit, "Log in" %>
+          </div>
+        </fieldset>
+        <% end %>
+        
+        <hr/>
+
+        <%= render "devise/shared/links" %>
+      </div>
+  </div>
+</div>

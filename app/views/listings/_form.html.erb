@@ -1,4 +1,5 @@
-<%= form_for(@listing) do |f| %>
+
+<%= simple_form_for(@listing, html: {class: 'form-vertical'}) do |f| %>
   <% if @listing.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@listing.errors.count, "error") %> prohibited this listing from being saved:</h2>
@@ -10,27 +11,13 @@
       </ul>
     </div>
   <% end %>
+  
+  <%= f.input :title %>
+  <%= f.input :ISBN %>
+  <%= f.input :price %>
+  <%= f.input :description %>
+  <%= f.input :condition %>
 
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :ISBN %><br>
-    <%= f.text_field :ISBN %>
-  </div>
-  <div class="field">
-    <%= f.label :price %><br>
-    <%= f.number_field :price %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
-  </div>
-  <div class="field">
-    <%= f.label :condition %><br>
-    <%= f.text_field :condition %>
-  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

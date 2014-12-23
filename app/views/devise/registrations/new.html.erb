@@ -1,0 +1,25 @@
+<%= devise_error_messages! %>
+<div class="row">
+  <div class="col-sm-4">
+    <div class="well">
+<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+	
+  <fieldset>
+  <legend>Sign Up</legend>
+  <%= f.input :first_name %>
+  <%= f.input :last_name %>
+  <%= f.input :netID %>
+  <%= f.input :email %>
+  <%= f.input :password %>
+  <%= f.input :password_confirmation %>
+
+  <div class="actions">
+    <%= f.submit "Sign up" %>
+  </div>
+</fieldset>
+<% end %>
+<hr/>
+<%= render "devise/shared/links" %>
+</div>
+</div>
+</div>
