@@ -7,25 +7,59 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+
 <nav class="navbar navbar-default navbar-fixed-top">
   <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#">Aggie Book Exchange</a>
-    </div>
+    <a class="navbar-brand" href="#">Aggie Book Exchange</a>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li><%= link_to "Home", root_path %></li>
+            <li><%= link_to "New Listing", new_listing_path %></li>          
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><%= link_to "Home", root_path %></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Separated link</a></li>
+                <li class="divider"></li>
+                <li><a href="#">One more separated link</a></li>
+              </ul>
+            </li>
+          </ul>
+          <form class="navbar-form navbar-left" role="search">
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Search">
+            </div>
+            <button type="submit" class="btn btn-default">Submit</button>
+          </form>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">Link</a></li>
+            <% if user_signed_in? %>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><%= current_user.full_name %> <span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><%= link_to "Account Settings", edit_user_registration_path(current_user) %></li>
+                <li><%= link_to "My Listings", root_path %></li>
+                <li class="divider"></li>
+                <li><%= link_to "Log out", logout_path %>
+              </ul>
+            </li>
+            <% else %>
+            <li><%= link_to "Sign in", login_path %></li>
+            <% end %>
+            </ul>
+        </div>
   </div>
 </nav>
 
-<%= render 'layouts/flash_messages' %>
 
-<div class="container">
-<%= yield %>
-</div>
+<!--Alert/Notice formatting-->
+  <div class="container">
+  <%= render 'layouts/flash_messages' %>
+  <%= yield %>
+  </div>
 
 </body>
 </html>

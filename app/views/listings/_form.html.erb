@@ -12,12 +12,12 @@
     </div>
   <% end %>
   
-  <%= f.input :title %>
-  <%= f.input :ISBN %>
-  <%= f.input :price %>
-  <%= f.input :description %>
-  <%= f.input :condition %>
-
+  <%= f.input :title, placeholder: 'Data Structures and Algorithms'%>
+  <%= f.input :edition, placeholder: '1st, 2nd, 3rd, etc.' %>
+  <%= f.input :ISBN, placeholder: 'xxxxxxxxx-x' %>
+  <%= f.input :price, placeholder: 'Don\'t include $', as: :string %>
+  <%= f.input :description, placeholder: "Damage, comments, registration codes, etc." %>
+  <%= f.input :condition, :collection => Condition::HASH_STATE.sort.map {|k,v| [v,k]}, prompt: 'Choose:'  %>
   <div class="actions">
     <%= f.submit %>
   </div>

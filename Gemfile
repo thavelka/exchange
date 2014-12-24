@@ -32,3 +32,7 @@ gem 'devise'
 
 # Use simple_form for forms
 gem 'simple_form'
+
+# Use pry and pry-doc for robe
+gem 'pry'
+gem 'pry-doc'
