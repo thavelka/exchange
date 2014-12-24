@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141224090634) do
+ActiveRecord::Schema.define(version: 20141224114125) do
 
   create_table "conditions", force: true do |t|
     t.datetime "created_at"
@@ -27,7 +27,13 @@ ActiveRecord::Schema.define(version: 20141224090634) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "edition"
+    t.integer  "userID"
   end
+
+  add_index "listings", ["ISBN"], name: "index_listings_on_ISBN"
+  add_index "listings", ["edition"], name: "index_listings_on_edition"
+  add_index "listings", ["title"], name: "index_listings_on_title"
+  add_index "listings", ["userID"], name: "index_listings_on_userID"
 
   create_table "users", force: true do |t|
     t.string   "first_name"

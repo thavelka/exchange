@@ -1,11 +1,11 @@
 class Condition < ActiveRecord::Base
 
   HASH_STATE = {
- "New" => "New",
- "Excellent" => "Excellent",
- "Good" => "Good",
- "Fair" => "Fair",
- "Poor" => "Poor"
+ "0" => "New",
+ "1" => "Excellent",
+ "2" => "Good",
+ "3" => "Fair",
+ "4" => "Poor"
   }
 
 end
