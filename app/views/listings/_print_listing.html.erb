@@ -11,9 +11,10 @@
       <em>"<%= listing.description %>"</em>
       <div class="bottom-aligned-text"><%= link_to time_ago_in_words(listing.created_at) + " ago", listing %> |
         <%= link_to "contact", listing %>
-        <% if listing.user == current_user %>
-          | <%= link_to "edit", edit_listing_path(listing) %>
-        <% end %>
+        <% if (listing.user == current_user)%>
+  	        | <%= link_to "edit", edit_listing_path(listing)%> |
+  		      <%= link_to "delete", listing, method: :delete, data: {confirm: "Are you sure?"} %>
+            <% end %>
       </div>
     </div>
     </div>

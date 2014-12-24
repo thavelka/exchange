@@ -19,6 +19,6 @@
   <%= f.input :description, placeholder: "Damage, comments, registration codes, etc." %>
   <%= f.input :condition, :collection => Condition::HASH_STATE.sort.map {|k,v| [v,v]}, prompt: 'Choose:'  %>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.button :submit, class: "btn btn-success" %><hr/>
   </div>
 <% end %>
