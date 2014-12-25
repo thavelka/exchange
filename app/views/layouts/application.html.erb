@@ -30,16 +30,17 @@
           </ul>
           <form class="navbar-form navbar-left" role="search">
             <div class="form-group">
-              <input type="text" class="form-control" placeholder="Search">
+              <%= text_field_tag :search, params[:search], class: "span2", placeholder: "Search Title or ISBN" %>
             </div>
             <button type="submit" class="btn btn-default">Submit</button>
           </form>
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">Link</a></li>
+            <li><%= link_to "Sign up", register_path %>
             <% if user_signed_in? %>
               <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><%= current_user.full_name %> <span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
+                <li><%= link_to "My Profile", profiles_show_path(current_user)%>
                 <li><%= link_to "Account Settings", edit_user_registration_path(current_user) %></li>
                 <li><%= link_to "My Listings", root_path %></li>
                 <li class="divider"></li>

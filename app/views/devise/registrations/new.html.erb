@@ -8,13 +8,13 @@
   <legend>Sign Up</legend>
   <%= f.input :first_name %>
   <%= f.input :last_name %>
-  <%= f.input :netID %>
+  <%= f.input :netID, label: "NetID" %>
   <%= f.input :email %>
   <%= f.input :password %>
   <%= f.input :password_confirmation %>
 
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <%= f.button :submit, class: "btn btn-success" %>
   </div>
 </fieldset>
 <% end %>
