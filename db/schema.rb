@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141224122026) do
+ActiveRecord::Schema.define(version: 20141227100207) do
 
   create_table "conditions", force: true do |t|
     t.datetime "created_at"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20141224122026) do
     t.datetime "updated_at"
     t.string   "edition"
     t.integer  "user_id"
+    t.string   "image"
   end
 
   add_index "listings", ["ISBN"], name: "index_listings_on_ISBN"

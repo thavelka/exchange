@@ -1,5 +1,5 @@
 
-<%= simple_form_for(@listing, html: {class: 'form-vertical'}) do |f| %>
+<%= simple_form_for(@listing, html: {multipart: true, class: 'form-vertical'}) do |f| %>
   <% if @listing.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@listing.errors.count, "error") %> prohibited this listing from being saved:</h2>
@@ -18,6 +18,7 @@
   <%= f.input :price, placeholder: 'Digits only', as: :string %>
   <%= f.input :description, placeholder: "Damage, comments, registration codes, etc." %>
   <%= f.input :condition, :collection => Condition::HASH_STATE.sort.map {|k,v| [v,v]}, prompt: 'Choose:'  %>
+  <%= f.file_field :image  %>
   <div class="actions">
     <%= f.button :submit, class: "btn btn-success" %><hr/>
   </div>

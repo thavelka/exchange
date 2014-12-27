@@ -36,3 +36,10 @@ gem 'simple_form'
 # Use pry and pry-doc for robe
 gem 'pry'
 gem 'pry-doc'
+
+# Use carrierwave for image uploads
+gem 'carrierwave'
+gem 'mini_magick'
+
+# Use kaminari for pagination
+gem 'kaminari'

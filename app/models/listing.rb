@@ -13,6 +13,8 @@ class Listing < ActiveRecord::Base
             }
 
   belongs_to :user
+  mount_uploader :image, BookImgUploader 
+  
   def self.search(query)
     @query.to_s.gsub!(/\W/)
     # where(:title, query) -> This would return an exact match of the query

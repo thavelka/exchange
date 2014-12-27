@@ -1,13 +1,15 @@
 class ListingsController < ApplicationController
+  before_filter :require_login, only: [:show, :new, :edit]
+  before_filter :configure_permitted_parameters, if: :devise_controller?
   before_action :set_listing, only: [:show, :edit, :update, :destroy]
 
   # GET /listings
   # GET /listings.json
   def index
     if params[:search]
-      @listings = Listing.search(params[:search]).order("created_at DESC")
+      @listings = Listing.search(params[:search]).order("created_at DESC").page(params[:page]).per(10)
     else
-      @listings = Listing.all
+      @listings = Listing.all.order("created_at DESC").page(params[:page]).per(10)
     end
   end
 
@@ -73,6 +75,12 @@ class ListingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def listing_params
-      params.require(:listing).permit(:user_id, :title, :edition, :ISBN, :price, :description, :condition)
+      params.require(:listing).permit(:user_id, :title, :edition, :ISBN, :price, :description, :condition, :image)
+    end
+    
+    def require_login
+      unless user_signed_in?
+        redirect_to login_path
+      end
     end
 end

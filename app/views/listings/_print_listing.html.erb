@@ -1,22 +1,20 @@
-<div class="col-sm-10">
-  <div class="well well-sm">
-    <div class ="row">
-    <div class="col-sm-2">
-      <img src="http://ecx.images-amazon.com/images/I/51LJZgoNz6L._SY344_BO1,204,203,200_.jpg" class="img-responsive">
-    </div>
-    <div class="col-sm-8">
-      <h4><%= listing.title %>, <%= listing.edition %> Edition<br>
-        <small><%= listing.condition %>, $<%= listing.price %> <span style="padding-left:10px">|</span>
-          <span style="padding-left:10px">ISBN: <%= listing.ISBN %></span><hr/></small></h4>
-      <em>"<%= listing.description %>"</em>
-      <div class="bottom-aligned-text"><%= link_to time_ago_in_words(listing.created_at) + " ago", listing %> |
-        <%= link_to "contact", listing %>
-        <% if (listing.user == current_user)%>
-  	        | <%= link_to "edit", edit_listing_path(listing)%> |
-  		      <%= link_to "delete", listing, method: :delete, data: {confirm: "Are you sure?"} %>
-            <% end %>
-      </div>
-    </div>
+
+<div class ="row">
+  <div class="col-sm-2">
+    <a href="<%= listing.image_url.to_s %>"><img src="<%= listing.image_url(:thumb).to_s %>" class="img-responsive"></a>
+  </div>
+  <div class="col-sm-8">
+    <h4><%= listing.title %>, <%= listing.edition %> Edition<br>
+      <small><%= listing.condition %>, $<%= listing.price %> <span style="padding-left:10px">|</span>
+        <span style="padding-left:10px">ISBN: <%= listing.ISBN %></span><hr/></small></h4>
+    <em>"<%= listing.description %>"</em>
+    <div class="bottom-aligned-text"><%= link_to time_ago_in_words(listing.created_at) + " ago", listing %> |
+      <%= link_to "contact", listing %>
+      <% if (listing.user == current_user)%>
+  	| <%= link_to "edit", edit_listing_path(listing)%> |
+  	<%= link_to "delete", listing, method: :delete, data: {confirm: "Are you sure?"} %>
+      <% end %>
     </div>
   </div>
 </div>
+<hr/>
