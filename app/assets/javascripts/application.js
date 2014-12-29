@@ -15,3 +15,7 @@
 //= require turbolinks
 //= require_tree .
 //= require bootstrap
+
+$(document).ready(function() {
+    $('a[href="' + this.location.pathname + '"]').parent().addClass('active');
+});

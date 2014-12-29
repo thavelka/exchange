@@ -1,2 +1,7 @@
 <div class="page-header"><h1>View Listing</h1></div>
+
 <%= render partial: 'print_listing', :locals => {:listing => @listing} %>
+<div class="well">
+  <h5>Contact Information:</h5>
+  <%= @listing.contact %>
+</div>

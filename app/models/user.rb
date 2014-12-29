@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
                               message: "Must be formatted correctly"
                             }
   
-  
+  has_one :profile
   has_many :listings
   
   def email()

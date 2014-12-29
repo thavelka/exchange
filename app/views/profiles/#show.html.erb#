@@ -1,0 +1,17 @@
+<div class="page-header">
+  <h1><%= @user.full_name %></h1>
+</div>
+
+<div class="row">
+  <div class="col-sm-4">
+    <div class="well well-sm">
+      <% @listings.each do |listing| %>
+        <div class="block">
+          <h4><%= listing.title %> <small><%= listing.edition %> edition</small></h4>
+          $<%= listing.price %>
+        </div>
+      <% end %>
+      <%= paginate @listings %>
+    </div>
+  </div>
+</div>

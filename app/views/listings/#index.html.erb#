@@ -1,4 +1,0 @@
-<div class="page-header"><h1>Latest Listings</h1></div>
-    <% @listings.reverse_each do |listing| %>
-      <%= render partial: 'print_listing', :locals => {:listing => listing} %>
-    <% end %>

@@ -1,7 +1,9 @@
 class Listing < ActiveRecord::Base
 
   validates :title, presence: true
+  validates :edition, presence: true
   validates :condition, presence: true
+  validates :contact, presence: true
   validates :price, presence: true,
             format: {
               with: /([1-9][0-9]*)|0/,

@@ -1,6 +1,6 @@
-
-<div class="page-header"><h1>Latest Listings</h1></div>
-
+<div class="page-header">
+  <h1>Aggie Book Exchange <small>showing <%= @listings.count %> listings</small><hr/></h1>
+</div>
 
 <% @listings.each do |listing| %>
   <div class="block">
